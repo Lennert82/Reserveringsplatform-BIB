@@ -3,46 +3,16 @@
 What the site must do, written so that someone else can check it. Each requirement expresses a need of
 your users, and has a check that passes or fails on the live site. Add a row per requirement.
 
-**How to fill in this file**
-
-- Write your own text in the lines and tables under each grey box.
-- Replace every TODO, and the hint after it, with your own text. A section that still holds a TODO
-  counts as not filled in.
-- Delete a line or a table row that you do not use.
-- The grey boxes are guidance. The course's checks do not read them, so you may keep them or delete
-  them. In the editor, a box is every line from the one that starts with `<table` to the line
-  `</td></tr></table>`: to delete a box, delete all of those lines.
-
-In a team, write under the title who wrote this document, by first name or GitHub username.
-
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** Write one row per requirement. Cover both of your user tasks first, then accessibility,
-privacy and speed. The five columns:
-- **Id:** R1, R2 and so on. A number is never used again.
-- **Requirement:** who can do what, under which condition. It names no product.
-- **Serves:** the task or the need behind it, in the words of the user or the organisation, with
-  the evidence it rests on, or how you will collect it.
-- **Check:** the page, the action and the exact result on the live site, so that another person can
-  run the check without asking you.
-- **Result:** "passed" with the date you checked it on the live site, or "not yet" with what is
-  missing, for example "not yet: not built".
-
-A requirement says what the site must do. Ask of each line: can the same outcome be reached in a
-different way? "A user can see which events are full" is a requirement, because a "Full" label and
-"0 seats left" both reach it. "A red Full label on the button" is one way of building it.
-
-**Example of one row:** R1. Requirement: a user can reserve one seat at an event that still has
-seats, with a name and an e-mail address, and sees a confirmation that says the reservation is
-saved. Serves: reserving a seat; the events coordinator needs to know before each event how many
-people are coming. Check: on `/events`, open "Meet the author" and reserve a seat with made-up
-details: the confirmation says the reservation is saved, and the reservation is listed in `/admin`.
-Result: not yet: the reservation is listed in `/admin`, but the confirmation does not say that it
-is saved.
-
-</td></tr></table>
+Written by: Lennert, with the whole team.
 
 | Id | Requirement | Serves | Check | Result |
 | --- | --- | --- | --- | --- |
-| R1 | TODO: who can do what, under which condition | TODO: the task or the need behind it | TODO: on the live site, what someone does, and what they must see | TODO: "passed" with the date you checked, or "not yet" with what is missing |
-| R2 | TODO: | TODO: | TODO: | TODO: |
+| R1 | A visitor can reserve a room for a free one-hour time slot on a day they choose, with a name and an e-mail address, and sees a confirmation that says the reservation is saved. | Task 1, reserve a meeting room. A group needs to know that a room is theirs for an hour. We check it with one person doing the task (test report). | On `/rooms`, open any room that has a free time slot, choose the slot, enter a made-up name and a made-up e-mail address ending in `.example`, and send the form. The confirmation says the reservation is saved, and the reservation is listed in `/admin` under the reservations. | not yet: rooms and time slots are not set up yet |
+| R2 | When a time slot is already taken, a visitor who tries to reserve it is refused with a clear message, and nothing is saved. | Task 1. Two groups must never get the same room for the same hour. We check it with one person doing the task (test report). | On `/rooms`, reserve one time slot of a room with made-up details, then reserve the same slot again. The second try shows "This slot is full. Choose another time." and `/admin` lists only one reservation for that slot. | not yet: rooms and time slots are not set up yet |
+| R3 | A visitor can see all lectures and tutoring sessions on one chosen topic. | Task 2, find a lecture or tutoring session. A visitor wants to know what the library offers on a topic. We check it with one person doing the task (test report). | On `/activities`, choose a topic. The list shows only activities that belong to that topic, and each shows its title and its topic. | not yet: not built |
+| R4 | A visitor can copy the address of a filtered list and send it, and the person who opens it sees the same list. | Task 2. A visitor wants to send the list of a topic to someone else. We check it with one person doing the task (test report). | On `/activities`, choose a topic and copy the address from the address bar. Open it in a private window: the same topic is selected and the same activities are shown. | not yet: not built |
+| R5 | A visitor can go from an activity to each of its topics, and from a topic to each of its activities. | Task 2. Activities and topics belong to each other, and a visitor may start from either. We check it with one person doing the task (test report). | Open an activity and follow one of its topics: that topic lists the activity you came from. Then open a topic and follow one of its activities: that activity names the topic you came from. | not yet: not built |
+| R6 | A visitor can do both tasks with the keyboard only, and always sees where the focus is. | Accessibility. Some users cannot use a mouse. We check it with the keyboard-only part of the release check. | Without the mouse, use Tab, Shift+Tab, Enter and the arrow keys to reserve a room (R1) and to filter the activities by topic (R3). Every step can be reached, and a visible outline shows the focused control. | not yet: not built |
+| R7 | Both tasks can be done on a phone-width screen, without sideways scrolling. | Accessibility and use on phones. Many students use the library site on a phone. We check it with the phone-width part of the release check. | In the browser, set the window to 390 px wide and do R1 and R3. Every control can be used, and no page scrolls sideways. | not yet: not built |
+| R8 | Before sending the reservation form, a visitor can read what the site keeps and why. | Privacy. The form asks for a name and an e-mail address, and the visitor must know what happens with them. | From the reservation form, follow the link to the privacy page. It says that the site keeps the name, the e-mail address and the reserved time slot, and for what purpose. | not yet: not built |
+| R9 | The home page and the room page show their main content quickly on a phone. | Speed. A slow page loses users who are in a hurry to find a room. | Run PageSpeed Insights (pagespeed.web.dev) on the live address of the home page and of `/rooms`, in the mobile tab. Largest Contentful Paint is 2.5 seconds or less, which is the "good" level on web.dev. | not yet: not measured |
