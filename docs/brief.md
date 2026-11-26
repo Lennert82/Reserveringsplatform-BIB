@@ -4,132 +4,56 @@ The short description of your site: who it is for and what it does. Its reader h
 site, so write what a stranger needs to understand it. Keep the brief
 to one page; the details belong in `docs/requirements.md`.
 
-**How to fill in this file**
-
-- Write your own text in the lines and tables under each grey box.
-- Replace every TODO, and the hint after it, with your own text. A section that still holds a TODO
-  counts as not filled in.
-- Delete a line or a table row that you do not use.
-- The grey boxes are guidance. The course's checks do not read them, so you may keep them or delete
-  them. In the editor, a box is every line from the one that starts with `<table` to the line
-  `</td></tr></table>`: to delete a box, delete all of those lines.
-
-In a team, write under the title who wrote this document, by first name or GitHub username.
+Written by: Lennert, with the whole team.
 
 ## What the site is for
 
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** Write the promise the site makes as one sentence, in the form given below. The
-sentence names no feature and no product. Then describe the organisation or topic the site is about.
-Choose a real organisation only if it knows about the project and agrees.
-
-**Example:** Millbrook Library's events help people in the city to reserve a seat at a free event,
-so that the library knows before each event how many people are coming. Millbrook Library is a
-made-up city library. It runs author talks, a reading group and story hours for children.
-
-</td></tr></table>
-
-- **The promise:** TODO: [Your service] helps [who] to [do what], so that [what the organisation gets].
-- **Who runs it:** TODO:
-- **What it offers:** TODO:
-- **Real or made up:** TODO:
+- **The promise:** Boekenbrug's website helps students and residents to reserve a meeting room in the library for a free hour and to find the lectures and tutoring sessions on a topic they care about, so that the library knows which rooms are taken and which activities people look for.
+- **Who runs it:** Boekenbrug is a made-up city library. Its desk staff keep the rooms, the time slots and the activities up to date in the site's admin area.
+- **What it offers:** Meeting rooms that can be reserved for fixed hourly time slots, and a list of lectures and tutoring sessions that can be filtered by topic and shared as a link.
+- **Real or made up:** Made up. Boekenbrug is not a real library, and every name, e-mail address, room and reservation on the site is invented.
 
 ## Its users
 
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** Write one row per kind of user. Two or three kinds are enough.
-
-A team fills in the two other tables too: two comparable sites that serve similar users, and the
-questions the team cannot answer yet. Working alone, you may delete those two tables.
-
-**Example:** A parent looks for a story hour and reserves two seats, so that the family knows it has
-a place. The events coordinator opens the reservations of an event, so that she knows how many chairs
-to set out. Not known yet: how many people come without a reservation. We will ask the coordinator to
-count them at two events.
-
-</td></tr></table>
-
 | Kind of user | What they come to do | What they have when it is done |
 | --- | --- | --- |
-| TODO: | TODO: | TODO: |
-| TODO: | TODO: | TODO: |
+| A student or resident who wants to work with others | Reserve a meeting room for an hour | A reservation that is saved, with a confirmation that says so |
+| A visitor who looks for a lecture or tutoring session | Find the activities on one topic and send the list to someone | A list of activities on that topic, and a link that shows the same list to the person who opens it |
+| A member of the desk staff | Open the reservations in the admin area | The list of who reserved which room and hour, so that nobody is turned away from a taken room |
 
 | Comparable site (its address) | Date we looked | One thing we learned from it |
 | --- | --- | --- |
-| TODO: | TODO: | TODO: |
-| TODO: | TODO: | TODO: |
+| https://student.uva.nl/onderwerpen/ruimtes-reserveren (University of Amsterdam, room reservations) | 26 November 2026 | A room is reserved for a limited time, here at most 4 hours and at most 2 reservations at once, and rooms can be filtered, for example by number of seats. We set a fixed one-hour time slot, so that one reservation is always easy to understand. |
+| https://bibliotheekdenhaag.nl/activiteiten/activiteiten.34.html (The Hague public library, agenda) | 26 November 2026 | The agenda offers filters on library, age, type of activity and theme, and lists lectures next to clubs and classes. We keep one filter, topic, because our users have one question: what is there on this topic? |
 
 | What we do not know yet | How and when we will find out |
 | --- | --- |
-| TODO: | TODO: |
+| Whether one hour is long enough for a group that reserves a room | In the usability test, we ask the person who reserves a room whether one hour was enough, and write the answer in the test report. |
+| Whether visitors look for an activity by topic first, or by date | In the same test, we watch which way the person goes when they look for a lecture, and write it in the test report. |
 
 ## The two tasks, ranked
 
-<table width="100%"><tr></tr><tr><td>
+1. **Task 1 (the primary task):** Reserve a meeting room for a free hour
+   - **Type:** Transactional
+   - **Outcome:** The reservation is saved for a room and an hour that were still free, and the user sees a confirmation that says it is saved.
+   - **When it fails:** Students and residents have no room they can count on and may stand at a locked door, and the library does not know which rooms are taken.
+2. **Task 2:** Find the lectures and tutoring sessions on one topic and share the list
+   - **Type:** Informational
+   - **Outcome:** The user sees every lecture and tutoring session on the chosen topic, and has a link that shows the same list to whoever opens it.
+   - **When it fails:** A user does not learn what the library offers on a topic, but can still ask at the library desk.
 
-**Guidance.** Task 1 is the primary task: the task that must work before anything else. Write each
-task as an action, with its type. The four types:
-- **Informational:** the user finds and understands something.
-- **Transactional:** the user sends something that the site saves, such as a reservation.
-- **Application:** the user does ongoing work on information that changes.
-- **Platform:** users create content and interact with each other.
-
-Your two tasks have different types, and at least one is transactional. For each task, say what users
-lose when it fails. Then say in two or three sentences why task 1 must work first.
-
-**Example:** 1. Reserve a seat at an event (transactional). Outcome: the reservation is saved for an
-event that still had a seat, and the user sees an honest confirmation. When it fails, the library
-does not know how many people are coming. 2. Find the events of this month that suit you
-(informational). Outcome: the user knows the date, the place and the age group of each event. When it
-fails, a user can still ask at the library's desk. Reserving must work first, because nothing else
-tells the library how many people are coming.
-
-</td></tr></table>
-
-1. **Task 1 (the primary task):** TODO: the task, as an action
-   - **Type:** TODO: informational, transactional, application or platform
-   - **Outcome:** TODO: what the user has when it is done
-   - **When it fails:** TODO: what users lose
-2. **Task 2:** TODO: the task, as an action
-   - **Type:** TODO: informational, transactional, application or platform
-   - **Outcome:** TODO: what the user has when it is done
-   - **When it fails:** TODO: what users lose
-
-**Why task 1 must work first:** TODO: two or three sentences
+**Why task 1 must work first:** A reservation is a promise to a person: when the site saves a room for an hour, nobody else may get it. If this fails, someone loses their group's meeting place, which a missing activity list never causes. It is also the only task where the site stores something about a user.
 
 ## Constraints
-
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** A constraint must hold whatever is built. The first three lines below are the
-project's own limits: keep them. In the last line, add what the organisation can and cannot do, in
-people, time and budget. If you have nothing to add, write "None".
-
-**Example:** Millbrook Library has one events coordinator and no budget for paid software this year.
-
-</td></tr></table>
 
 - Test data only: made-up names, e-mail addresses and bookings, never real personal data.
 - No payments.
 - Free plans only.
-- TODO: add any other constraint your project has, or write "None".
+- Each room can be reserved for fixed one-hour time slots only, and one reservation takes one room for one hour.
 
 ## Not in this version
 
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** List what you decided to leave out, so that nobody mistakes it for something
-forgotten. Give each item its reason, and the condition under which you would look at it again. Two
-or three rows are usual.
-
-**Example:** No waiting list for full events: we found no need for one yet. We look at it again if
-events are full more than a week before they take place.
-
-</td></tr></table>
-
 | Left out | Why | We look at it again when |
 | --- | --- | --- |
-| TODO: | TODO: | TODO: |
-| TODO: | TODO: | TODO: |
+| Signing up for a lecture or tutoring session | It would be a second reservation system with its own rules, and we keep two tasks. | The two tasks work on the live site and a visitor asks to reserve a place at an activity. |
+| Cancelling a reservation | A cancel step needs a way to prove that the user made the reservation, and we have no log-in for it yet. | A reservation has to be undone more than once during the usability test. |
