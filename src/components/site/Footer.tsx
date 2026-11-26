@@ -34,7 +34,7 @@ export function Footer() {
           </ul>
         </nav>
         <p className="border-t border-line pt-6 text-sm text-ink-soft sm:col-span-2">
-          Campus Cycle is a fictional example site for the course Building better websites.
+          {SITE_NAME} is a fictional example site for the course Building better websites. Team code: T01-E8NL.
         </p>
       </div>
     </footer>
