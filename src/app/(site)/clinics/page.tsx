@@ -17,8 +17,8 @@ export const dynamic = 'force-dynamic'
 const CLINIC_IMAGE = 'clinic-tools'
 
 export const metadata: Metadata = {
-  title: 'Repair clinic',
-  description: 'Book a time slot at the Campus Cycle repair clinic and bring your bicycle for a check or a repair.',
+  title: 'Boekenbrug',
+  description: 'Book a time slot at Boekenbrug and bring your own stuff to study.',
 }
 
 export default async function ClinicsPage() {
@@ -30,14 +30,14 @@ export default async function ClinicsPage() {
   return (
     <div className="pb-6">
       <PageTitle
-        title="Repair clinic"
-        intro="Bring your bicycle to the clinic for a check or a repair. Book a time slot first, so we are ready for you."
+        title="Boekenbrug"
+        intro="Bring your books to the Boekenbrug for a tutoring or to study. Book a time slot first, so we are ready for you."
         image={imageFrom(picture)}
       />
       {clinics.length === 0 ? (
         <Notice tone="warning" label="Not open yet" className="max-w-3xl">
-          <p className="font-heading text-xl font-extrabold">The repair clinic opens soon</p>
-          <p>When it opens, you can book a time slot on this page and bring your bicycle for a check or a repair.</p>
+          <p className="font-heading text-xl font-extrabold">The Boekenbrug opens soon</p>
+          <p>When it opens, you can book a time slot on this page and come in for a tutoring or to study.</p>
         </Notice>
       ) : (
         <ul className="grid max-w-3xl gap-block">

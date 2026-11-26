@@ -1,8 +1,8 @@
 // The facts of the example site. When you turn the starter into your own project, this file and the
 // seed are where the example content lives.
 //
-// Campus Cycle is a made-up bicycle repair service at a college. Every fact here comes from the
-// course's Campus Cycle fact sheet, so the site, the lessons and the exercises all tell the same story.
+// Boekenbrug is a made-up library place at a university. It is based on the
+// course the lessons and the exercises from Value with Websites.
 //
 // The seed (src/seed/seed.ts) copies these facts into the database ONCE per database: after its first
 // complete run it notes in the database that the example was added, and every later run, on each
@@ -19,9 +19,9 @@
 // `as const` makes every value here fixed: TypeScript then knows, for example, that the clinic's day is
 // exactly 'Saturday', not just "some text", and warns about a typo anywhere it is used.
 
-// The site's name: in the header, the footer and every browser tab ("<Page> · Campus Cycle", from
+// The site's name: in the header, the footer and every browser tab ("<Page> · Boekenbrug", from
 // SITE_TITLE below). Change it here, once.
-export const SITE_NAME = 'Campus Cycle'
+export const SITE_NAME = 'Boekenbrug'
 
 // The browser tab's title. The home page shows the name alone; every other page gives only its own part
 // (such as "Repair clinic") and Next.js adds " · " and the name after it, so a tab or a bookmark says both
@@ -31,9 +31,9 @@ export const SITE_TITLE = { default: SITE_NAME, template: `%s · ${SITE_NAME}` }
 export const CAMPUS_CYCLE = {
   // The place, the e-mail address and the pricing rule (below) go into the Site facts global
   // (src/globals/SiteFacts.ts): every page that shows them reads them from there.
-  place: 'Workshop B, Student Centre',
-  email: 'hello@campuscycle.example',
-  pricingRule: 'Tools, a tutor and standard parts are included. Bring your own parts and pay EUR 5 less per bicycle.',
+  place: 'Studiedag, Boekenbrug 1a',
+  email: 'hello@boekenbrug.example',
+  pricingRule: 'Extra papers, a tutor and water are included. Bring your books and book your study or tutoring session.',
   // The clinic is NOT in the seed: you add it yourself in /admin (a later exercise in the course asks
   // you to add it), with its time slots. These are the agreed facts for it: Saturday 15:00 to 17:00,
   // four 30-minute slots, two bicycles per slot.

@@ -1,4 +1,4 @@
-// What this is: the bottom of every page: what Campus Cycle is, the small print links (with Contact,
+// What this is: the bottom of every page: what Boekenbrug is, the small print links (with Contact,
 // where the place and the e-mail address are), and one honest line saying the site is a made-up example.
 //
 // It reads nothing from the database on purpose: it is on every page, the "not found" page too, and
@@ -21,7 +21,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-page gap-block px-gutter py-12 sm:grid-cols-[2fr_1fr]">
         <div className="grid content-start gap-2">
           <p className="font-heading text-xl font-black">{SITE_NAME}</p>
-          <p className="max-w-[32ch] text-ink-soft">Bicycle repair and maintenance workshops at the college.</p>
+          <p className="max-w-[32ch] text-ink-soft">Tutoring and study place at the university.</p>
         </div>
         <nav aria-label="Footer" className="grid content-start gap-2">
           <h2 className="text-sm font-bold tracking-[0.08em] uppercase">More</h2>

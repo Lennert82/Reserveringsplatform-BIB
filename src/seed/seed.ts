@@ -1,4 +1,4 @@
-// The seed: puts the Campus Cycle example content into a new site's database, so the site has real
+// The seed: puts the Boekenbrug example content into a new site's database, so the site has real
 // pages and images to show from its very first day.
 //
 // It adds the example content ONCE PER DATABASE. After a run that finished without an error, it notes
@@ -34,7 +34,7 @@ import { CAMPUS_CYCLE, MADE_UP_DATA_NOTICE } from '../content/campus-cycle'
 import { PlainError } from '../lib/plainError'
 import { richText } from './richText'
 
-// true: a new site starts with the Campus Cycle example. Set it to false before your first deploy to
+// true: a new site starts with the cycling clinic example. Set it to false before your first deploy to
 // start from an empty site (only the first editor is created) and add your own content in /admin. After
 // your first deploy, changing it changes nothing: delete the example records in /admin instead (they
 // do not come back).
@@ -86,28 +86,28 @@ const PHOTO_CREDITS = [
 
 export const PAGES = [
   {
-    title: 'Campus Cycle',
+    title: 'Boekenbrug',
     slug: 'home',
     // No word about the clinic's times here: it is not in the seed, and until you add it the home page
     // says "The repair clinic opens soon".
     intro:
-      'Campus Cycle is the bicycle repair service at the college. Bring your bicycle for a check or a repair.',
+      'Boekenbrug is the bicycle repair service at the college. Bring your bicycle for a check or a repair.',
     // No body: everything else on the home page comes from its own record: the clinic, and the pricing
     // rule from the Site facts global.
   },
   {
-    title: 'About Campus Cycle',
+    title: 'About Boekenbrug',
     slug: 'about',
     intro: 'Who we are, what we do and where to find us.',
     body: richText([
       {
         paragraph:
-          'Campus Cycle is a fictional bicycle repair service at a college. Two staff members run it.',
+          'Boekenbrug is a fictional library at a University. 6 students run it.',
       },
-      { heading: 'Checks and repairs' },
+      { heading: 'Tutors' },
       // No times here: the clinic's own page shows them from its record, once it is open.
       {
-        paragraph: 'Bring your bicycle for a check or a repair. When the repair clinic is open, you first book a time slot on its page.',
+        paragraph: 'Bring your books and laptop so you can study. When the Boekenbrug is open, you first book a time slot on its page.',
       },
       { heading: 'Where to find us' },
       // A link, not the address: the Contact page shows the place from the Site facts global.
@@ -127,7 +127,7 @@ export const PAGES = [
   {
     title: 'Contact',
     slug: 'contact',
-    intro: 'Questions about the repair clinic? Send us an e-mail.',
+    intro: 'Questions about the Boekenbrug? Send us an e-mail.',
     // Prose only: the Contact page shows the e-mail address and the place from the Site facts global.
     body: richText([
       { paragraph: 'There is no contact form on this site: send an e-mail instead.' },
@@ -190,7 +190,7 @@ function sameImage(stored: string | null | undefined, wanted: string): boolean {
 }
 
 /**
- * Adds the Campus Cycle example content that is missing, and leaves everything that exists alone.
+ * Adds the Boekenbrug example content that is missing, and leaves everything that exists alone.
  * Returns how many records it created and how many it found already there.
  *
  * `env` is where it looks for VERCEL and BLOB_READ_WRITE_TOKEN (normally process.env; a test can pass
