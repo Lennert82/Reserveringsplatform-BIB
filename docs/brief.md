@@ -18,7 +18,7 @@ Written by: Lennert, with the whole team.
 | Kind of user | What they come to do | What they have when it is done |
 | --- | --- | --- |
 | A student or resident who wants to work with others | Reserve a meeting room for an hour | A reservation that is saved, with a confirmation that says so |
-| A visitor who looks for a lecture or tutoring session | Find the activities on one topic and send the list to someone | A list of activities on that topic, and a link that shows the same list to the person who opens it |
+| A user who looks for a lecture or tutoring session | Find the activities on one topic and send the list to someone | A list of activities on that topic, and a link that shows the same list to the person who opens it |
 | A member of the desk staff | Open the reservations in the admin area | The list of who reserved which room and hour, so that nobody is turned away from a taken room |
 
 | Comparable site (its address) | Date we looked | One thing we learned from it |
@@ -29,7 +29,7 @@ Written by: Lennert, with the whole team.
 | What we do not know yet | How and when we will find out |
 | --- | --- |
 | Whether one hour is long enough for a group that reserves a room | In the usability test, we ask the person who reserves a room whether one hour was enough, and write the answer in the test report. |
-| Whether visitors look for an activity by topic first, or by date | In the same test, we watch which way the person goes when they look for a lecture, and write it in the test report. |
+| Whether users look for an activity by topic first, or by date | In the same test, we watch which way the person goes when they look for a lecture, and write it in the test report. |
 
 ## The two tasks, ranked
 
@@ -55,5 +55,5 @@ Written by: Lennert, with the whole team.
 
 | Left out | Why | We look at it again when |
 | --- | --- | --- |
-| Signing up for a lecture or tutoring session | It would be a second reservation system with its own rules, and we keep two tasks. | The two tasks work on the live site and a visitor asks to reserve a place at an activity. |
+| Signing up for a lecture or tutoring session | It would be a second reservation system with its own rules, and we keep two tasks. | The two tasks work on the live site and a user asks to reserve a place at an activity. |
 | Cancelling a reservation | A cancel step needs a way to prove that the user made the reservation, and we have no log-in for it yet. | A reservation has to be undone more than once during the usability test. |
