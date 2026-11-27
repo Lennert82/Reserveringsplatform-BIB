@@ -7,14 +7,10 @@ import { ButtonLink } from '@/components/site/ButtonLink'
 import { FramedCard } from '@/components/site/FramedCard'
 import { Notice } from '@/components/site/Notice'
 import { PageTitle } from '@/components/site/PageTitle'
-import { formatWhen, imageFrom } from '@/lib/format'
+import { formatWhen } from '@/lib/format'
 import config from '@/payload.config'
 
 export const dynamic = 'force-dynamic'
-
-// The clinic's picture, from the media library (the seed uploads it). To use another one, upload it
-// in /admin and put its file name here.
-const CLINIC_IMAGE = 'clinic-tools'
 
 export const metadata: Metadata = {
   title: 'Boekenbrug',
@@ -25,19 +21,17 @@ export default async function ClinicsPage() {
   const payload = await getPayload({ config })
   // Newest first: the clinic added last is usually the one that is on now.
   const clinics = (await payload.find({ collection: 'clinics', sort: '-createdAt', depth: 0, limit: 20 })).docs
-  const picture = (await payload.find({ collection: 'media', where: { filename: { contains: CLINIC_IMAGE } }, limit: 1 })).docs[0]
 
   return (
     <div className="pb-6">
       <PageTitle
         title="Boekenbrug"
-        intro="Bring your books to the Boekenbrug for a tutoring or to study. Book a time slot first, so we are ready for you."
-        image={imageFrom(picture)}
+        intro="Choose a room and book an hour for your group."
       />
       {clinics.length === 0 ? (
         <Notice tone="warning" label="Not open yet" className="max-w-3xl">
-          <p className="font-heading text-xl font-extrabold">The Boekenbrug opens soon</p>
-          <p>When it opens, you can book a time slot on this page and come in for a tutoring or to study.</p>
+          <p className="font-heading text-xl font-extrabold">The rooms open soon</p>
+          <p>When they open, you can book an hour here for your group.</p>
         </Notice>
       ) : (
         <ul className="grid max-w-3xl gap-block">
