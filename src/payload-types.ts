@@ -74,6 +74,8 @@ export interface Config {
     clinics: Clinic;
     timeSlots: TimeSlot;
     bookings: Booking;
+    topics: Topic;
+    activities: Activity;
     throttle: Throttle;
     members: Member;
     'payload-kv': PayloadKv;
@@ -88,6 +90,9 @@ export interface Config {
     timeSlots: {
       bookings: 'bookings';
     };
+    topics: {
+      activities: 'activities';
+    };
   };
   collectionsSelect: {
     users: UsersSelect<false> | UsersSelect<true>;
@@ -96,6 +101,8 @@ export interface Config {
     clinics: ClinicsSelect<false> | ClinicsSelect<true>;
     timeSlots: TimeSlotsSelect<false> | TimeSlotsSelect<true>;
     bookings: BookingsSelect<false> | BookingsSelect<true>;
+    topics: TopicsSelect<false> | TopicsSelect<true>;
+    activities: ActivitiesSelect<false> | ActivitiesSelect<true>;
     throttle: ThrottleSelect<false> | ThrottleSelect<true>;
     members: MembersSelect<false> | MembersSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
@@ -264,6 +271,10 @@ export interface Clinic {
    * If your course gave you a personal code for warm-up 4, put it in this summary.
    */
   summary: string;
+  /**
+   * How many people fit in the room.
+   */
+  capacity?: number | null;
   timeSlots?: {
     docs?: (number | TimeSlot)[];
     hasNextPage?: boolean;
@@ -348,6 +359,48 @@ export interface Member {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "topics".
+ */
+export interface Topic {
+  id: number;
+  name: string;
+  /**
+   * The last part of the web address, for example repair-a-puncture. Use lowercase letters, digits and hyphens.
+   */
+  slug: string;
+  description?: string | null;
+  activities?: {
+    docs?: (number | Activity)[];
+    hasNextPage?: boolean;
+    totalDocs?: number;
+  };
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "activities".
+ */
+export interface Activity {
+  id: number;
+  title: string;
+  /**
+   * The last part of the web address, for example repair-a-puncture. Use lowercase letters, digits and hyphens.
+   */
+  slug: string;
+  kind: 'lecture' | 'tutoring' | 'workshop' | 'book-club';
+  day: 'Monday' | 'Tuesday' | 'Wednesday' | 'Thursday' | 'Friday' | 'Saturday' | 'Sunday';
+  /**
+   * Use the 24-hour clock, for example 18:30.
+   */
+  startTime: string;
+  summary: string;
+  topics?: (number | Topic)[] | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "throttle".
  */
 export interface Throttle {
@@ -403,6 +456,14 @@ export interface PayloadLockedDocument {
     | ({
         relationTo: 'bookings';
         value: number | Booking;
+      } | null)
+    | ({
+        relationTo: 'topics';
+        value: number | Topic;
+      } | null)
+    | ({
+        relationTo: 'activities';
+        value: number | Activity;
       } | null)
     | ({
         relationTo: 'throttle';
@@ -531,6 +592,7 @@ export interface ClinicsSelect<T extends boolean = true> {
   startTime?: T;
   endTime?: T;
   summary?: T;
+  capacity?: T;
   timeSlots?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -559,6 +621,33 @@ export interface BookingsSelect<T extends boolean = true> {
   note?: T;
   member?: T;
   requestId?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "topics_select".
+ */
+export interface TopicsSelect<T extends boolean = true> {
+  name?: T;
+  slug?: T;
+  description?: T;
+  activities?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "activities_select".
+ */
+export interface ActivitiesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  kind?: T;
+  day?: T;
+  startTime?: T;
+  summary?: T;
+  topics?: T;
   updatedAt?: T;
   createdAt?: T;
 }

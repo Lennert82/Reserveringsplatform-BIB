@@ -6,6 +6,7 @@ import { day, slug, startTime } from './fields'
 // The Saturday repair clinic: when and where it happens. Its bookable times are in Time Slots.
 export const Clinics: CollectionConfig = {
   slug: 'clinics',
+  labels: { singular: 'Room', plural: 'Rooms' },
   admin: {
     useAsTitle: 'name',
   },
@@ -46,6 +47,13 @@ export const Clinics: CollectionConfig = {
       },
     },
     // Add new clinic fields here, above the time slots list, so they also show above it in /admin.
+    {
+      name: 'capacity',
+      type: 'number',
+      min: 1,
+      admin: { description: 'How many people fit in the room.' },
+    },
+
 
     // The reverse side (a join) of the one-to-many: one clinic has many time slots. The link is stored
     // once, in each time slot's "clinic" field.

@@ -1,6 +1,6 @@
 'use client'
 
-// The last safety net for a clinic's pages (/clinics/<slug> and its confirmation): Next.js shows this
+// The last safety net for a clinic's pages (/rooms/<slug> and its confirmation): Next.js shows this
 // instead of the page when something unexpected goes wrong while the page is made, for example when
 // the database cannot be reached. It must run in the browser ('use client'), because its button works
 // there.
@@ -29,7 +29,7 @@ export default function ClinicError({ retry }: ErrorPageProps) {
       />
       <div className="flex flex-wrap gap-3">
         <Button type="button" onClick={() => retry()}>Try again</Button>
-        <ButtonLink href="/clinics" variant="secondary">All repair clinics</ButtonLink>
+        <ButtonLink href="/rooms" variant="secondary">All repair clinics</ButtonLink>
       </div>
     </div>
   )
