@@ -1,139 +1,48 @@
 # Decision: an integration
 
-Whether the site connects to another service, and to which. Its reader comes later, with one
-question: can I change this, and what happens if I do?
-
-**How to fill in this file**
-
-- Write your own text in the lines and tables under each grey box.
-- Replace every TODO, and the hint after it, with your own text. A section that still holds a TODO
-  counts as not filled in.
-- Delete a line or a table row that you do not use.
-- The grey boxes are guidance. The course's checks do not read them, so you may keep them or delete
-  them. In the editor, a box is every line from the one that starts with `<table` to the line
-  `</td></tr></table>`: to delete a box, delete all of those lines.
+Whether the site connects to another service, and to which. Its reader comes later, with one question: can I change this, and what happens if I do?
 
 ## The question
 
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** Write in one sentence what had to be decided. Add the need of your users behind it,
-or the requirement it serves, and what forces a choice now.
-
-**Example:** Do we show a map of the way to the library, and from which service? Users who reserve
-a seat need to find the building (requirement R4).
-
-</td></tr></table>
-
-- **The question:** TODO: one sentence
-- **The need or requirement behind it:** TODO:
+- **The question:** Do we show a map of where to find the library on the Contact page, and from which service?
+- **The need or requirement behind it:** A user who reserves a meeting room needs to find the building. The map serves that need; it is not one of requirements R1 to R9.
 
 ## Options considered
 
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** Write at least two options, one row each: what the option would give, and what it
-would cost. No integration at all is an option too: it is the first row here. Choose your
-integration from the course's suggested list (Integration Patterns: APIs and Webhooks, Your
-integration project's candidates):
-- a chat window (tawk.to);
-- an e-mail service for confirmations (Resend);
-- a booking calendar (Cal.com);
-- a newsletter sign-up;
-- a map (OpenStreetMap).
-
-None of these has been tried with this starter, so check the one you choose yourself. The brief rules
-out payments, so the list has no payment provider. Add a row for each further option.
-
-**Example:** No integration: the address as text on the "Visit us" page. It costs nothing and sends
-no data to anyone, but a user must look up the way in another app.
-
-</td></tr></table>
-
 | Option | What it would give | What it would cost |
 | --- | --- | --- |
-| No integration | TODO: | TODO: |
-| TODO: | TODO: | TODO: |
+| No integration | The place as text on the Contact page: nothing is sent to anyone. | A user must look up the way in another app. |
+| A map from OpenStreetMap | A map with a marker on the Contact page, with no account and no key. | The service receives each user's internet address when the map loads, and the page depends on it. |
+| E-mail confirmations (Resend) | A confirmation e-mail after a reservation. | An account and a key, and each user's name and e-mail address would go to the service. More work than a map. |
 
 ## The decision
 
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** Write the option you chose as one sentence. Once it is installed, add what you
-installed, where its settings are, and how you checked that it does what you expected: the grading
-list asks for it. Until then, write "Not installed yet" on those lines. In a team, name who took part
-in the decision. Working alone, delete that line.
-
-**Example:** We chose a map from OpenStreetMap on the "Visit us" page. Its code is in the page's
-file, with the library's place in it. We opened the page on the live site, on a phone and on a
-laptop: the map shows the marker on the library.
-
-</td></tr></table>
-
-- **We chose:** TODO:
-- **What we installed, and where its settings are:** TODO:
-- **How we checked that it does what we expected:** TODO:
-- **Who took part in the decision:** TODO:
+- **We chose:** A map from OpenStreetMap on the Contact page.
+- **What we installed, and where its settings are:** Not installed yet. It is one frame in src/app/(site)/contact/page.tsx, from recipe R11 in docs/guides/recipes.md. It is made in a pull request by Achiel.
+- **How we checked that it does what we expected:** Not installed yet.
+- **Who took part in the decision:** Lennert proposed it, with an AI assistant looking up the facts below. The whole team (Lennert, Achiel, Jean, Martijn, Mauro and Barre) agreed on 27 November 2026.
 
 ## Why
 
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** Give each reason with its evidence: what you checked before you decided. Then say what
-that evidence cannot tell you. Two or three reasons are enough.
-
-**Example:** The map needs no account and no key: we read OpenStreetMap's page on embedding a map.
-The events coordinator told us that people phone the library to ask the way. Her answer cannot tell
-us how many users would look at a map.
-
-</td></tr></table>
-
-- **Why we chose it:** TODO: each reason with what you checked
-- **What this evidence cannot tell us:** TODO:
+- **Why we chose it:** (1) It needs no account and no key, so nobody has to manage a secret. (2) Recipe R11 in docs/guides/recipes.md gives the exact code and says it was run on a fresh starter. (3) OpenStreetMap's tile usage policy asks for visible attribution and warns about heavy use, and our contact page is small.
+- **What this evidence cannot tell us:** The policy page does not mention the frame embed that openstreetmap.org offers, so it does not say whether that embed is covered. It also cannot tell us whether the embed sets cookies; we check that on the live page once it is installed.
 
 ## Consequences
 
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** Write what you accepted with the choice, both the good and the bad. One line for each
-point below is enough.
-
-**Example:** OpenStreetMap receives each user's internet address when the map loads, and our
-privacy page says so. When the service is down, the page still shows the address as text.
-
-</td></tr></table>
-
-- **The accounts it needs, and its cost in money and in time:** TODO:
-- **Who maintains it:** TODO:
-- **What we give up:** TODO:
-- **How we could leave the service later:** TODO:
-- **The personal data that leaves our site, and whether it needs a cookie banner:** TODO:
-- **What happens to our site when the service is down:** TODO:
+- **The accounts it needs, and its cost in money and in time:** No account and no cost. About fifteen minutes.
+- **Who maintains it:** Achiel.
+- **What we give up:** The map shows an invented place (the centre of Ghent), because Boekenbrug is a fictional library.
+- **How we could leave the service later:** Delete the frame and the link under it from the Contact page.
+- **The personal data that leaves our site, and whether it needs a cookie banner:** openstreetmap.org receives each user's internet address when the map loads. We write that on the privacy page. We have not yet checked whether the frame sets cookies.
+- **What happens to our site when the service is down:** The frame stays empty; the place and the e-mail address are still shown as text.
 
 ## Facts read on
 
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** List each provider's page you read, with its link and the date you read it. Plans and
-limits change, so the date tells the next reader how old the facts are. Add a row for each page.
-
-**Example:** OpenStreetMap's page on embedding a map, with its link, read on 20 April 2026.
-
-</td></tr></table>
-
 | Page | Its link | Read on |
 | --- | --- | --- |
-| TODO: | TODO: | TODO: date |
+| OpenStreetMap Tile Usage Policy | https://operations.osmfoundation.org/policies/tiles/ | 27 November 2026 |
+| Our recipe R11 (OpenStreetMap on the contact page) | docs/guides/recipes.md in this repository | 27 November 2026 |
 
 ## Review when
 
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** Name the event that should make someone look at this decision again. One line is
-enough.
-
-**Example:** We review it when the library moves, or when the map stops loading on the live site.
-
-</td></tr></table>
-
-TODO: when to review it.
+When the library gets a real address, or when the map stops loading on the live site.

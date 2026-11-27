@@ -1,132 +1,47 @@
 # Decision: analytics
 
-Whether the site measures how it is used, and with which tool. Its reader comes later, with one
-question: can I change this, and what happens if I do? The starter's
-analytics are off until `NEXT_PUBLIC_ANALYTICS` names a tool; see `src/lib/analytics.ts`.
-
-**How to fill in this file**
-
-- Write your own text in the lines and tables under each grey box.
-- Replace every TODO, and the hint after it, with your own text. A section that still holds a TODO
-  counts as not filled in.
-- Delete a line or a table row that you do not use.
-- The grey boxes are guidance. The course's checks do not read them, so you may keep them or delete
-  them. In the editor, a box is every line from the one that starts with `<table` to the line
-  `</td></tr></table>`: to delete a box, delete all of those lines.
+Whether the site measures how it is used, and with which tool. Its reader comes later, with one question: can I change this, and what happens if I do? The starter's analytics are off until NEXT_PUBLIC_ANALYTICS names a tool; see src/lib/analytics.ts.
 
 ## The question
 
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** Write in one sentence what had to be decided. Add the need or the requirement behind
-it, and what you want the numbers to tell you.
-
-**Example:** Do we measure how the site is used, and with which tool? The library wants to know how
-many people who open an event's page go on to reserve a seat (requirement R1).
-
-</td></tr></table>
-
-- **The question:** TODO: one sentence
-- **The need or requirement behind it:** TODO:
+- **The question:** Do we measure how the site is used, and with which tool?
+- **The need or requirement behind it:** We want to know whether people who open a room's page go on to reserve it (R1 in docs/requirements.md), and whether the topic filter on the activities page is used (R3 and R4).
 
 ## Options considered
 
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** Write at least two options, one row each: what the option would give, and what it
-would cost. One of them is the simplest thing, which is the first row here. The other usual options
-for analytics are Vercel Web Analytics, which the starter can switch on, and Matomo, only if someone
-already hosts it for you. Add a row for each further option.
-
-**Example:** No analytics: it costs nothing and collects nothing, but we cannot see whether anyone
-opens an event's page.
-
-</td></tr></table>
-
 | Option | What it would give | What it would cost |
 | --- | --- | --- |
-| No analytics | TODO: | TODO: |
-| TODO: | TODO: | TODO: |
+| No analytics | Nothing to install, and nothing is collected. | We cannot see whether anyone reserves a room or uses the filter. |
+| Vercel Web Analytics | Page views without third-party cookies and, if our plan allows it, the starter's two custom events (filter_used and booking_saved). | A monthly allowance of events, one environment variable and one switch in Vercel. |
 
 ## The decision
 
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** Write the option you chose as one sentence. Once it is installed, add what you
-installed, where its settings are, and how you checked that it does what you expected: the grading
-list asks for it. Until then, write "Not installed yet" on those lines. In a team, name who took part
-in the decision. Working alone, delete that line.
-
-**Example:** We chose Vercel Web Analytics. It is switched on with `NEXT_PUBLIC_ANALYTICS=vercel` in
-Vercel's settings and with **Enable** on the project's Analytics tab. We opened the live site with
-the browser's Network tab open, and saw the request named `view` that records a page view.
-
-</td></tr></table>
-
-- **We chose:** TODO:
-- **What we installed, and where its settings are:** TODO:
-- **How we checked that it does what we expected:** TODO:
-- **Who took part in the decision:** TODO:
+- **We chose:** Vercel Web Analytics.
+- **What we installed, and where its settings are:** Not installed yet. It will be switched on with NEXT_PUBLIC_ANALYTICS=vercel in the project's environment variables in Vercel and with Enable on the project's Analytics tab (see src/lib/analytics.ts).
+- **How we checked that it does what we expected:** Not installed yet.
+- **Who took part in the decision:** Lennert proposed it, with an AI assistant looking up the facts below. The whole team (Lennert, Achiel, Jean, Martijn, Mauro and Barre) agreed on 27 November 2026.
 
 ## Why
 
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** Give each reason with its evidence: what you checked before you decided. Then say what
-that evidence cannot tell you. Two or three reasons are enough.
-
-**Example:** It needs no second account, because the site already runs on Vercel. We read Vercel's
-pricing page: the free plan includes page views. That page cannot tell us whether page views alone
-will answer our question.
-
-</td></tr></table>
-
-- **Why we chose it:** TODO: each reason with what you checked
-- **What this evidence cannot tell us:** TODO:
+- **Why we chose it:** (1) The site already runs on Vercel, so we need no second account. (2) The starter already sends the two key steps once NEXT_PUBLIC_ANALYTICS is set (src/lib/analytics.ts), so no code is needed. (3) Vercel's pages say that Hobby teams include 50,000 events per month, that it is free within the limits, and that visitors are counted without third-party cookies, by a hash of the request.
+- **What this evidence cannot tell us:** How many events our site will have, which plan our Vercel team is on (we have not looked in the dashboard), and whether that plan records custom events as well as page views.
 
 ## Consequences
 
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** Write what you accepted with the choice, both the good and the bad. One line for each
-point below is enough.
-
-**Example:** On the free plan we see page views only, so we cannot count saved reservations. To
-leave the tool, we remove the setting and switch Analytics off in Vercel.
-
-</td></tr></table>
-
-- **Its cost in money and in time:** TODO:
-- **Who maintains it:** TODO:
-- **What we give up:** TODO: what you cannot learn, and what the free plan leaves out
-- **How we could leave the tool later:** TODO:
-- **The data it collects about our users, and whether it needs a cookie banner:** TODO:
+- **Its cost in money and in time:** Nothing if the team is on the Hobby plan and stays under 50,000 events a month, and about ten minutes to switch on.
+- **Who maintains it:** Lennert, who looks after the releases.
+- **What we give up:** On the Hobby plan, collection pauses when the monthly limit is reached (Vercel's pricing page), so we would see nothing for the rest of that month.
+- **How we could leave the tool later:** Remove NEXT_PUBLIC_ANALYTICS from Vercel's environment variables and switch Analytics off on the project's Analytics tab.
+- **The data it collects about our users, and whether it needs a cookie banner:** Vercel's privacy page lists, per data point: time, address of the page, referrer, geolocation, device system, browser and device type, with no personal identifiers. It says no third-party cookies are used. We have not asked a lawyer whether a banner is needed; our privacy page (in /admin) must say that the site counts visits, when we switch it on.
 
 ## Facts read on
 
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** List each provider's page you read, with its link and the date you read it. Plans and
-limits change, so the date tells the next reader how old the facts are. Add a row for each page.
-
-**Example:** Vercel's pricing page for Web Analytics, with its link, read on 20 April 2026.
-
-</td></tr></table>
-
 | Page | Its link | Read on |
 | --- | --- | --- |
-| TODO: | TODO: | TODO: date |
+| Pricing for Web Analytics | https://vercel.com/docs/analytics/limits-and-pricing | 27 November 2026 |
+| Manage and optimize Observability usage (50,000 events on Hobby) | https://vercel.com/docs/manage-and-optimize-observability | 27 November 2026 |
+| Privacy and Compliance (Web Analytics) | https://vercel.com/docs/analytics/privacy-policy | 27 November 2026 |
 
 ## Review when
 
-<table width="100%"><tr></tr><tr><td>
-
-**Guidance.** Name the event that should make someone look at this decision again. One line is
-enough.
-
-**Example:** We review it when the library asks how many reservations come from each event's page,
-because the free plan cannot answer that.
-
-</td></tr></table>
-
-TODO: when to review it.
+When we switch it on and see the first numbers, when the monthly limit is reached, or when the privacy page of the site changes.
