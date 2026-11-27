@@ -1,4 +1,4 @@
-// The booking confirmation, /clinics/<slug>/booked?ref=<booking id>.<signature>. The booking form
+// The booking confirmation, /rooms/<slug>/booked?ref=<booking id>.<signature>. The booking form
 // opens it after a booking was saved. It says only what really happened: it shows the clinic and the
 // time of the booking named in the link, and only when the link's signature is right
 // (src/tasks/book-slot/receipt.ts). A link that is missing, changed or made up never claims a booking.
@@ -53,7 +53,7 @@ export default async function BookedPage({ params, searchParams }: Props) {
         <Notice tone="warning" label="Please note" className="max-w-3xl">
           <p className="font-heading text-xl font-extrabold">We can&apos;t show this booking confirmation.</p>
           <p>The link may be incomplete or out of date. The clinic&apos;s page shows its times and how many places each one has left.</p>
-          <ButtonLink href={`/clinics/${clinic.slug}`} variant="secondary" className="mt-2 w-fit">Back to the clinic</ButtonLink>
+          <ButtonLink href={`/rooms/${clinic.slug}`} variant="secondary" className="mt-2 w-fit">Back to the clinic</ButtonLink>
         </Notice>
       </div>
     )
@@ -104,7 +104,7 @@ export default async function BookedPage({ params, searchParams }: Props) {
           </dl>
         </section>
         <div className="flex flex-wrap gap-3">
-          <ButtonLink href={`/clinics/${clinic.slug}`} variant="secondary">Back to the clinic</ButtonLink>
+          <ButtonLink href={`/rooms/${clinic.slug}`} variant="secondary">Back to the clinic</ButtonLink>
           <ButtonLink href="/" variant="quiet">Home</ButtonLink>
         </div>
       </div>

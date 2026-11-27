@@ -5,6 +5,7 @@ import * as migration_20261004_173034_latest_end from './20261004_173034_latest_
 import * as migration_20261004_205526_booking_request_id from './20261004_205526_booking_request_id';
 import * as migration_20261004_222941_members_area from './20261004_222941_members_area';
 import * as migration_20261126_152627_remove_example from './20261126_152627_remove_example';
+import * as migration_20261127_121731_rooms_activities_topics from './20261127_121731_rooms_activities_topics';
 
 export const migrations = [
   {
@@ -40,6 +41,11 @@ export const migrations = [
   {
     up: migration_20261126_152627_remove_example.up,
     down: migration_20261126_152627_remove_example.down,
-    name: '20261126_152627_remove_example'
+    name: '20261126_152627_remove_example',
+  },
+  {
+    up: migration_20261127_121731_rooms_activities_topics.up,
+    down: migration_20261127_121731_rooms_activities_topics.down,
+    name: '20261127_121731_rooms_activities_topics'
   },
 ];

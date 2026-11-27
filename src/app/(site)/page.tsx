@@ -36,7 +36,7 @@ export default async function HomePage() {
         text={home?.intro}
         image={imageFrom(picture)}
         actions={
-          <ButtonLink href={clinic ? `/clinics/${clinic.slug}` : '/clinics'} size="lg">
+          <ButtonLink href={clinic ? `/rooms/${clinic.slug}` : '/rooms'} size="lg">
             Repair clinic
           </ButtonLink>
         }
@@ -50,7 +50,7 @@ export default async function HomePage() {
             <>
               <p className="font-semibold">{clinic.name} · {formatWhen(clinic)}</p>
               <p>{clinic.summary}</p>
-              <ButtonLink href={`/clinics/${clinic.slug}`} className="w-fit">Book a time slot</ButtonLink>
+              <ButtonLink href={`/rooms/${clinic.slug}`} className="w-fit">Book a time slot</ButtonLink>
             </>
           ) : (
             <>

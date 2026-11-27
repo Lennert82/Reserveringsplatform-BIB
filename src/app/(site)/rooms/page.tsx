@@ -43,10 +43,10 @@ export default async function ClinicsPage() {
         <ul className="grid max-w-3xl gap-block">
           {clinics.map((clinic) => (
             <li key={clinic.id} className="grid">
-              <FramedCard title={clinic.name} href={`/clinics/${clinic.slug}`} accent="coral" headingLevel="h2">
+              <FramedCard title={clinic.name} href={`/rooms/${clinic.slug}`} accent="coral" headingLevel="h2">
                 <p className="font-semibold">{formatWhen(clinic)}</p>
                 <p>{clinic.summary}</p>
-                <ButtonLink href={`/clinics/${clinic.slug}`} className="w-fit">Book a time slot</ButtonLink>
+                <ButtonLink href={`/rooms/${clinic.slug}`} className="w-fit">Book a time slot</ButtonLink>
               </FramedCard>
             </li>
           ))}

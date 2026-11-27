@@ -74,10 +74,10 @@
       "path": "/"
     },
     {
-      "path": "/clinics"
+      "path": "/rooms"
     },
     {
-      "path": "/clinics/{test-clinic}",
+      "path": "/rooms/{test-clinic}",
       "groups": [
         {
           "criterion": 3,

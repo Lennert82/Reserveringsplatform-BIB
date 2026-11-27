@@ -1,4 +1,4 @@
-// One clinic's page, /clinics/<slug>: example task 2, "book a clinic slot". It shows the clinic and
+// One clinic's page, /rooms/<slug>: example task 2, "book a clinic slot". It shows the clinic and
 // the booking form with the time slots that have not started yet and their places left.
 // The checks and the save are in src/tasks/book-slot/ (see its README.md).
 //
@@ -92,7 +92,7 @@ export default async function ClinicPage({ params }: Props) {
 
   return (
     <article className="pb-6">
-      <ParentLink href="/clinics" label="Repair clinic" current={clinic.name} />
+      <ParentLink href="/rooms" label="Repair clinic" current={clinic.name} />
       <PageTitle
         title={clinic.name}
         intro="Choose a time, book it here, and bring your bicycle for a check or a repair."
