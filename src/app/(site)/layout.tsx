@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   // after it (src/content/campus-cycle.ts, SITE_TITLE).
   title: SITE_TITLE,
   description:
-    'Boekenbrug: Boekenbrug makes sure every student gets the chance to get tutoring or a studyplace  at the University. A fictional example site for the course Building better websites.',
+    'Boekenbrug: a library where you can book a room for your group and find lectures and tutoring. A fictional example site for the course Building better websites.',
 }
 
 export default function SiteLayout({ children }: { children: ReactNode }) {
