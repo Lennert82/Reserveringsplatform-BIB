@@ -38,6 +38,17 @@ export default async function ContactPage() {
           <dd className="min-w-0 [overflow-wrap:anywhere]">{facts.place}</dd>
         </dl>
       )}
+        {/* The map: OpenStreetMap's own embed. The title says what the frame shows; the link below opens the same map for people who cannot use the frame. */}
+      <iframe
+        title="Map: where to find us"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=3.7150%2C51.0515%2C3.7275%2C51.0570&layer=mapnik&marker=51.0543%2C3.7212"
+        loading="lazy"
+        className="h-80 w-full max-w-(--container-reading) rounded-frame border border-line"
+      />
+      <p>
+        <a href="https://www.openstreetmap.org/?mlat=51.0543&mlon=3.7212#map=17/51.0543/3.7212">Open the map on its own page</a>
+      </p>
+
     </PlainPage>
   )
 }
