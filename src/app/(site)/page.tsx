@@ -37,15 +37,15 @@ export default async function HomePage() {
         image={imageFrom(picture)}
         actions={
           <ButtonLink href={clinic ? `/rooms/${clinic.slug}` : '/rooms'} size="lg">
-            Repair clinic
+            Rooms
           </ButtonLink>
         }
       />
 
       <section aria-labelledby="clinic" className="grid gap-block">
         <div className="framed grid content-start gap-4 p-6 offset-coral sm:p-8">
-          <Badge tone="coral">Let us fix it</Badge>
-          <h2 id="clinic" className="text-2xl">Repair clinic</h2>
+          <Badge tone="coral">Study together</Badge>
+          <h2 id="clinic" className="text-2xl">Rooms</h2>
           {clinic ? (
             <>
               <p className="font-semibold">{clinic.name} · {formatWhen(clinic)}</p>
@@ -54,8 +54,8 @@ export default async function HomePage() {
             </>
           ) : (
             <>
-              <p className="font-semibold">The repair clinic opens soon</p>
-              <p>When it opens, you can book a time slot here and bring your bicycle for a check or a repair.</p>
+              <p className="font-semibold">The Rooms opens soon</p>
+              <p>When they open, you can book an hour here for your group.</p>
             </>
           )}
         </div>
