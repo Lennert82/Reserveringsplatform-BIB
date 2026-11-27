@@ -24,12 +24,12 @@ export default function ClinicError({ retry }: ErrorPageProps) {
     <div className="pb-6">
       <PageTitle
         title="This page could not be shown"
-        intro="Something went wrong while showing this page. Try again, or go back to all repair clinics."
+        intro="Something went wrong while showing this page. Try again, or go back to all rooms."
         tone="yellow"
       />
       <div className="flex flex-wrap gap-3">
         <Button type="button" onClick={() => retry()}>Try again</Button>
-        <ButtonLink href="/rooms" variant="secondary">All repair clinics</ButtonLink>
+        <ButtonLink href="/rooms" variant="secondary">All rooms</ButtonLink>
       </div>
     </div>
   )
