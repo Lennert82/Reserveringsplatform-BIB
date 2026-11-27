@@ -21,7 +21,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-page gap-block px-gutter py-12 sm:grid-cols-[2fr_1fr]">
         <div className="grid content-start gap-2">
           <p className="font-heading text-xl font-black">{SITE_NAME}</p>
-          <p className="max-w-[32ch] text-ink-soft">Tutoring and study place at the university.</p>
+          <p className="max-w-[32ch] text-ink-soft">Rooms to book, lectures and tutoring to find.</p>
         </div>
         <nav aria-label="Footer" className="grid content-start gap-2">
           <h2 className="text-sm font-bold tracking-[0.08em] uppercase">More</h2>
