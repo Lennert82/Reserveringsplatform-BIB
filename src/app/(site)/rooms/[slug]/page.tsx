@@ -14,15 +14,11 @@ import { BookingForm } from '@/components/site/BookingForm'
 import { Notice } from '@/components/site/Notice'
 import { PageTitle } from '@/components/site/PageTitle'
 import { ParentLink } from '@/components/site/ParentLink'
-import { formatSlotTime, formatWhen, imageFrom } from '@/lib/format'
+import { formatSlotTime, formatWhen } from '@/lib/format'
 import { membersAreaOn, signedInMember } from '@/lib/membersArea'
 import config from '@/payload.config'
 
 export const dynamic = 'force-dynamic'
-
-// The clinic's picture, from the media library (the seed uploads it). To use another one, upload it
-// in /admin and put its file name here.
-const CLINIC_IMAGE = 'clinic-tools'
 
 type Props = { params: Promise<{ slug: string }> }
 
@@ -80,7 +76,6 @@ export default async function ClinicPage({ params }: Props) {
   }))
   const allFull = slots.length > 0 && slots.every((slot) => slot.placesLeft === 0)
 
-  const picture = (await payload.find({ collection: 'media', where: { filename: { contains: CLINIC_IMAGE } }, limit: 1 })).docs[0]
   // The place, from the Site facts global (src/globals/SiteFacts.ts).
   const facts = await payload.findGlobal({ slug: 'site-facts', depth: 0 })
 
@@ -92,11 +87,10 @@ export default async function ClinicPage({ params }: Props) {
 
   return (
     <article className="pb-6">
-      <ParentLink href="/rooms" label="Repair clinic" current={clinic.name} />
+      <ParentLink href="/rooms" label="Rooms" current={clinic.name} />
       <PageTitle
         title={clinic.name}
-        intro="Choose a time, book it here, and bring your bicycle for a check or a repair."
-        image={imageFrom(picture)}
+        intro="Choose an hour and book it here for your group."
         className="mt-3 sm:mt-4"
       />
 
@@ -118,7 +112,7 @@ export default async function ClinicPage({ params }: Props) {
 
         <div className="grid content-start gap-block lg:col-start-1 lg:row-start-1">
           <section aria-labelledby="about" className="grid gap-3">
-            <h2 id="about" className="text-2xl">About the clinic</h2>
+            <h2 id="about" className="text-2xl">About the room</h2>
             <p className="max-w-(--container-reading)">{clinic.summary}</p>
           </section>
 
